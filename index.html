@@ -7,36 +7,75 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
+<body class="relative">
 
-<nav class="fixed top-0 w-full p-4 flex flex-row justify-center items-center gap-6">
-    <i id="logo" class="bi bi-alexa absolute left-5 text-4xl text-white"></i>
+<i id="logo" class="fixed m-auto top-5 left-5 bi bi-alexa text-4xl text-white"></i>
+<i class="hamburger md:hidden bi bi-list fixed m-auto top-5 right-5 text-4xl text-white cursor-pointer"></i>
+
+<nav class="fixed top-0 w-full p-4 flex flex-row justify-center items-center">
+    <div class="hidden md:flex flex-row justify-center items-center w-fit gap-4">
     <a href="#" class="text-2xl text-white tracking-wider">Home</a>
     <a href="#" class="text-2xl text-white tracking-wider">About Us</a>
     <a href="#" class="text-2xl text-white tracking-wider">Services</a>
     <a href="#" class="text-2xl text-white tracking-wider">Contact</a>
-    <div class="absolute right-5 flex flex-row justify-center items-center gap-4">
+    </div>
+    
+    <div class="hidden md:block absolute right-5 flex flex-row justify-center items-center gap-4">
         <button class="text-white hover:bg-white hover:text-green-500 border border-2 text-xl py-1 px-4 rounded rounded-xl w-fit">Sign in</button>
         <button class="text-white hover:bg-white hover:text-green-500 border border-2 text-xl py-1 px-4 rounded rounded-xl w-fit">Sign up</button>
     </div>
 </nav>
-<header class="h-screen max-w-screen text-white flex flex-row justify-center items-center">
 
-    <div class="flex flex-row h-5/6 w-9/12">
+<nav class="z-20 text-white kayanmenu fixed top-0 flex flex-col justify-center items-start w-10/12">
+    <a href="#" class="text-2xl text-white tracking-wider h-12 w-full flex flex-start items-center px-4 hover:bg-white hover:text-green-500">Home</a>
+    <a href="#" class="text-2xl text-white tracking-wider h-12 w-full flex flex-start items-center px-4 hover:bg-white hover:text-green-500">About Us</a>
+    <a href="#" class="text-2xl text-white tracking-wider h-12 w-full flex flex-start items-center px-4 hover:bg-white hover:text-green-500">Services</a>
+    <a href="#" class="text-2xl text-white tracking-wider h-12 w-full flex flex-start items-center px-4 hover:bg-white hover:text-green-500">Contact</a>
+</nav>
 
-    <div class="h-full w-4/6 flex flex-col justify-center flex-start gap-8">
-    <h1 class="text-5xl text-left w-10/12">Lorem ipsum dolor sit <span>amet consectetur</span> adipisicing elit. </h1>
-    <p class="text-xl text-left w-10/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error autem eius quod quo illo! Assumenda aperiam repellendus quas nisi doloribus non enim a hic officiis distinctio ut quisquam, maxime autem.</p>
-    <button class="bg-white text-green-500 text-2xl py-2 px-4 rounded rounded-xl w-fit hover:shadow-2xl hover:shadow-black">Explore</button>
+<header class="h-fit md:h-screen max-w-screen text-white flex flex-row justify-center items-center">
+
+    <div class="flex flex-col md:flex-row h-5/6 w-full md:w-9/12 p-8 md:p-0">
+
+    <div class="h-full w-full md:w-4/6 flex flex-col justify-center items-center md:items-start gap-8">
+    <h1 class="text-[9vw] md:text-5xl text-center md:text-left w-10/12">Lorem ipsum dolor sit <span>amet consectetur</span> adipisicing elit. </h1>
+    <img id="headerimg" src="header.svg" class="md:hidden h-[300px] md:h-5/6 w-auto">
+    <p class="text-[4vw] md:text-xl text-center md:text-left w-10/12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error autem eius quod quo illo! Assumenda aperiam repellendus quas nisi doloribus non enim a hic officiis distinctio ut quisquam, maxime autem.</p>
+    <button class="md:ml-0 block bg-white text-green-500 text-2xl py-2 px-4 rounded rounded-xl w-fit hover:shadow-2xl hover:shadow-black">Explore</button>
     </div>
 
-    <div class="h-full w-2/6 flex justify-center items-center">
-        <img id="headerimg" src="header.svg" class="h-5/6 w-auto">
+    <div class="h-full w-full md:w-2/6 flex justify-center items-center">
+        <img id="headerimg" src="header.svg" class="hidden md:block h-5/6 w-auto">
     </div>
 
     </div>
 </header>
 
 </body>
+
+<script>
+    $(document).ready(function() {
+
+      let clicked = false; // clicked değişkenini dışarıda tanımlıyoruz
+    
+      $(".hamburger").click(function() {
+    
+        $(".kayanmenu").toggleClass("menuacik");
+    
+        if (clicked) {
+          $(this).addClass("bi bi-list");
+          $(this).removeClass("bi bi-x")
+        } else {
+          $(this).addClass("bi bi-x")
+          $(this).removeClass("bi bi-list")
+        }
+    
+        clicked = !clicked; // clicked değeri her tıklamada değiştiriliyor
+      });
+      
+    });
+
+    </script>
 </html>

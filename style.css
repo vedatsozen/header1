@@ -53,3 +53,13 @@ span {
   font-style: normal;
 }
 
+nav.kayanmenu {
+    background-color:rgb(13, 202, 22);
+    left: -100vw;
+    transition: 500ms ease;
+}
+
+nav.kayanmenu.menuacik {
+    left: 0vw;
+    transition: 500ms ease;
+}
